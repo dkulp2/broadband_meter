@@ -25,7 +25,7 @@ function displayMs(ms) {
 
 function setProgress(tag, downloaded, elapsedMs, totalMs) {
     val = downloaded / payloadBits * 100;
-    div = $(tag);
+    div = $("#" + tag);
     bar = div.find(".progress-bar");
     barWidth = bar.parent().width();
     if (val > 100) { val = 100; downloaded = payloadBits; elapsedMs = totalMs; }
@@ -40,7 +40,7 @@ function incProgress(k) {
 }
 
 function setProgressAll() {
-    $.each(downloadedBits, function(k,v) { setProgress("#" + k, v, v/bitsPerMs[k], payloadBits/bitsPerMs[k]); })
+    $.each(downloadedBits, function(k,v) { setProgress(k, v, v/bitsPerMs[k], payloadBits/bitsPerMs[k]); })
 }
 
 function incProgressAll() {
@@ -72,6 +72,7 @@ $( document ).ready(function() {
     $( "#payload" ).change(function( event ) { 
         resetDownloaded(); 
         payloadBits = this.value * 8; 
+        setProgressAll();
     });
     $( "#payload" ).change();
 });
