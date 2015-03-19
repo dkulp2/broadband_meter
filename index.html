@@ -20,10 +20,11 @@
     <div class="container bandwidth-demo" role="main">
 
       <div class="jumbotron">
-        <h1>Broadband Speed Simulation</h1>
-        <p>Click to see how long it takes to download files</p>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-md-4">
+            <a href="http://wiredwest.net"><img src="WiredWestLogoFeb2015.png"></a>
+            <p>Click to see how long it takes to download files</p>
+            <button type="button" class="btn btn-lg btn-primary btn-block start">Start</button>
             <select id="payload" class="form-control">
               <option value="50000000000">2 hour UltraHD Movie (40G)</option>
               <option value="4000000000">2 hour HD Movie (4G)</option>
@@ -35,10 +36,7 @@
               <option value="4000000">4 min song (4M)</option>
             </select>
           </div>
-          <div class="col-sm-3">
-            <button type="button" class="btn btn-lg btn-primary start">Start</button>
-            <button type="button" class="btn btn-lg reset">Reset</button>
-          </div>
+          <h1 class="col-md-4 col-md-offset-1">Broadband Speed Simulation</h1>
         </div>
       </div>
 
@@ -62,6 +60,12 @@
         </div>
       </div>
       <div id="fiber2">
+        <div class="row"><h4 class="col-sm-6">100 Mbps Fiber</h4><p class="col-sm-6 text-right"><small></small></p></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar"><span></span></div>
+        </div>
+      </div>
+      <div id="fiber3">
         <div class="row"><h4 class="col-sm-6">1 Gbps Fiber</h4><p class="col-sm-6 text-right"><small></small></p></div>
         <div class="progress">
           <div class="progress-bar progress-bar-success" role="progressbar"><span></span></div>
