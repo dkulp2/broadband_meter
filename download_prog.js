@@ -2,7 +2,7 @@
 // Author: David Kulp, dkulp@dizz.org
 
 var msInterval = 100;
-var bitsPerMs = { DSL: 3000, satellite: 12000, fiber1: 25000, fiber2: 1000000 };
+var bitsPerMs = { DSL: 3000, satellite: 12000, fiber1: 25000, fiber2: 100000, fiber3: 1000000 };
 var downloadedBits = { };
 
 var payloadBits = undefined;  // set by form
@@ -56,17 +56,26 @@ function resetDownloaded() {
     $.each(bitsPerMs, function(k,v) { downloadedBits[k] = 0; });
 }
 
+function startReset(btn) {
+    resetDownloaded();
+    clearInterval(intervalId);
+    btnState = $(btn).data("state");
+    if (btnState == 1 || btnState == undefined) {
+        console.log("In Start");
+        intervalId = setInterval(updateAll, msInterval);
+        $(btn).data("state",0);
+        $(btn).text("Reset");
+    } else {
+        console.log("In Reset");
+        setProgressAll();
+        $(btn).data("state",1);
+        $(btn).text("Start");
+    }
+}
+
 $( document ).ready(function() {
     $( "button.start" ).click(function( event ) {
-        resetDownloaded();
-        clearInterval(intervalId);
-        intervalId = setInterval(updateAll, msInterval);
-    });
-
-    $( "button.reset" ).click(function( event ) {
-        resetDownloaded();
-        clearInterval(intervalId);
-        setProgressAll();
+        startReset(this);
     });
 
     $( "#payload" ).change(function( event ) { 
