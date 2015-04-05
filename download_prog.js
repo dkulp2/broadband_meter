@@ -2,7 +2,7 @@
 // Author: David Kulp, dkulp@dizz.org
 
 var msInterval = 100;
-var bitsPerMs = { DSL: 3000, satellite: 12000, fiber1: 25000, fiber2: 100000, fiber3: 1000000 };
+var bitsPerMs = { DSL: 3000, satellite: 10000, fiber1: 25000, fiber2: 100000, fiber3: 1000000 };
 var downloadedBits = { };
 
 var payloadBits = undefined;  // set by form
@@ -35,8 +35,7 @@ function setProgress(tag, downloaded, elapsedMs, totalMs) {
 }
 
 function incProgress(k) {
-    bitsPerInterval = bitsPerMs[k] * msInterval;
-    downloadedBits[k] += bitsPerInterval;
+    downloadedBits[k] += bitsPerMs[k] * msInterval;
 }
 
 function setProgressAll() {
@@ -61,12 +60,10 @@ function startReset(btn) {
     clearInterval(intervalId);
     btnState = $(btn).data("state");
     if (btnState == 1 || btnState == undefined) {
-        console.log("In Start");
         intervalId = setInterval(updateAll, msInterval);
         $(btn).data("state",0);
         $(btn).text("Reset");
     } else {
-        console.log("In Reset");
         setProgressAll();
         $(btn).data("state",1);
         $(btn).text("Start");
