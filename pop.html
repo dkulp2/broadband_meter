@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Broadband Speed Simulation">
+    <meta name="author" content="David Kulp">
+
+    <title>Broadband Speed Simulation</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+  </head>
+
+  <body role="document">
+
+    <div class="container bandwidth-demo" role="main">
+
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-lg btn-primary btn-block start">Start</button>
+            <select id="payload" class="form-control">
+              <option value="50000000000">2 hour UltraHD Movie (40G)</option>
+              <option value="4000000000">2 hour High Definition Movie (4G)</option>
+              <option value="1500000000" selected="selected">2 hour Standard Definition Movie (1.5G)</option>
+              <option value="800000000">Operating System Update (800M)</option>
+              <option value="200000000">45 min TV Show (200M)</option>
+              <option value="110000000">9 hour Audio Book (110M)</option>
+              <option value="30000000">5 min video (30M)</option>
+              <option value="4000000">4 min song (4M)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="DSL">
+        <div class="row"><h4 class="col-sm-6">3 Mbps Verizon DSL</h4><p class="col-sm-6 text-right"><small></small></p></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar"><span></span></div>
+        </div>
+      </div>
+      <div id="satellite">
+        <div class="row"><h4 class="col-sm-6">10 Mbps HughesNet Satellite</h4><p class="col-sm-6 text-right"><small></small></p></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar"><span></span></div>
+        </div>
+      </div>
+      <div id="fiber1">
+        <div class="row"><h4 class="col-sm-6">25 Mbps WiredWest Fiber</h4><p class="col-sm-6 text-right"><small></small></p></div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar"><span></span></div>
+        </div>
+      </div>
+      <div id="fiber2">
+        <div class="row"><h4 class="col-sm-6">100 Mbps WiredWest Fiber</h4><p class="col-sm-6 text-right"><small></small></p></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar"><span></span></div>
+        </div>
+      </div>
+      <div id="fiber3">
+        <div class="row"><h4 class="col-sm-6">1 Gbps WiredWest Fiber</h4><p class="col-sm-6 text-right"><small></small></p></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar"><span></span></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="download_prog.js"></script>
+  </body>
+</html>
